@@ -1,0 +1,8 @@
+.DS_Store
+.claude/settings.local.json
+.obsidian
+.cursor/hooks
+
+# graphify — machine-local build state; the graph outputs themselves are committed
+graphify-out/cache/
+graphify-out/.graphify_*

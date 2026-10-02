@@ -1,0 +1,156 @@
+/* =============================================================================
+ * Molca shadcn preset — full foundation theme
+ * Source: Figma "Molca — Shadcn Design System" (mvVIgPwuzefi1XA90TstQ6),
+ * collections Tokens (semantic, Light/Dark), Primitives (radius), Typography —
+ * read via the Figma plugin bridge, alias-resolved. Every value is annotated.
+ *
+ * Layers:
+ *   :root / .dark   — semantic colors (shadcn core + Molca extensions), both modes
+ *   @theme inline    — colors + full radius scale + type scale + fonts → utilities
+ *
+ * Brand flips to lime (#cfff33) in dark mode. Tailwind v4 form; v3 note in README.
+ * ============================================================================= */
+
+:root {
+  --radius: 0.75rem; /* button radius = Radius/xl = 12px */
+
+  /* shadcn core */
+  --background: #fafafa;             /* BG/primary (app-background) */
+  --foreground: #1d293d;             /* Text/primary */
+  --card: #ffffff;                   /* BG/secondary (card-surface) */
+  --card-foreground: #1d293d;
+  --popover: #ffffff;
+  --popover-foreground: #1d293d;
+  --primary: #231f20;                /* BG/button (brand-bg) */
+  --primary-foreground: #ffffff;     /* Text/text-button */
+  --secondary: #f5f5f5;              /* BG/tertiary (section-grouping) */
+  --secondary-foreground: #1d293d;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;       /* Text/tertiary (helper) */
+  --accent: #e5e5e5;                 /* BG/quaternary */
+  --accent-foreground: #1d293d;
+  --destructive: #fb2c36;            /* BG/error */
+  --destructive-foreground: #ffffff;
+  --border: #d4d4d4;                 /* Border/primary */
+  --input: #d4d4d4;
+  --ring: #231f20;
+
+  /* Molca extensions (text/bg/border/status) */
+  --text-secondary: #525252;         /* Text/secondary */
+  --text-tertiary: #737373;          /* Text/tertiary (helper) */
+  --text-quaternary: #a1a1a1;        /* Text/quaternary (placeholder) */
+  --text-brand: #231f20;             /* Text/brand */
+  --bg-input: #fafafa;               /* BG/input field */
+  --border-secondary: #e5e5e5;       /* Border/secondary */
+  --border-brand: #2c2c2c;           /* Border/brand */
+  --success: #dcfce7;                /* BG/success */
+  --success-foreground: #00c950;     /* Text/success */
+  --warning: #ffedd4;                /* BG/warning */
+  --warning-foreground: #ff6900;     /* Text/warning */
+}
+
+.dark {
+  --background: #010101;             /* BG/primary → Molca/black */
+  --foreground: #f5f5f5;
+  --card: #231f20;                   /* BG/secondary → primary-black */
+  --card-foreground: #f5f5f5;
+  --popover: #231f20;
+  --popover-foreground: #f5f5f5;
+  --primary: #cfff33;                /* brand flips to lime */
+  --primary-foreground: #231f20;
+  --secondary: #404040;
+  --secondary-foreground: #f5f5f5;
+  --muted: #404040;
+  --muted-foreground: #a1a1a1;
+  --accent: #525252;
+  --accent-foreground: #f5f5f5;
+  --destructive: #ff6467;            /* BG/error → Red/400 */
+  --destructive-foreground: #ffffff;
+  --border: #525252;
+  --input: #525252;
+  --ring: #cfff33;
+
+  --text-secondary: #d4d4d4;
+  --text-tertiary: #a1a1a1;
+  --text-quaternary: #737373;
+  --text-brand: #cfff33;
+  --bg-input: #010101;
+  --border-secondary: #404040;
+  --border-brand: #2c2c2c;
+  --success: #00c950;
+  --success-foreground: #b9f8cf;
+  --warning: #ff6900;
+  --warning-foreground: #ffd6a7;
+}
+
+@theme inline {
+  /* colors → utilities (bg-*, text-*, border-*) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-quaternary: var(--text-quaternary);
+  --color-brand: var(--text-brand);
+  --color-bg-input: var(--bg-input);
+  --color-border-secondary: var(--border-secondary);
+  --color-border-brand: var(--border-brand);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  /* radius scale (Primitives/Radius, px) */
+  --radius-none: 0px;
+  --radius-xxs: 2px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-4xl: 24px;
+  --radius-full: 9999px;
+
+  /* type scale (Typography/Font, px) — size + paired line-height */
+  --text-xxxs: 8px;
+  --text-xxs: 10px;   --text-xxs--line-height: 12px;
+  --text-xs: 12px;    --text-xs--line-height: 16px;
+  --text-sm: 14px;    --text-sm--line-height: 20px;
+  --text-base: 16px;  --text-base--line-height: 24px;
+  --text-lg: 18px;    --text-lg--line-height: 28px;
+  --text-xl: 20px;    --text-xl--line-height: 28px;
+  --text-2xl: 24px;   --text-2xl--line-height: 32px;
+  --text-3xl: 30px;   --text-3xl--line-height: 36px;
+  --text-4xl: 36px;   --text-4xl--line-height: 40px;
+  --text-5xl: 48px;   --text-5xl--line-height: 48px;
+  --text-6xl: 60px;   --text-6xl--line-height: 60px;
+  --text-7xl: 72px;   --text-7xl--line-height: 72px;
+  --text-8xl: 96px;   --text-8xl--line-height: 96px;
+  --text-9xl: 128px;  --text-9xl--line-height: 128px;
+
+  /* fonts — load Poppins + Molca display faces (next/font or @import) */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Molca Bold", var(--font-sans);
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+}
